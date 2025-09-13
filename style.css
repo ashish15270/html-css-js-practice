@@ -76,7 +76,7 @@ body {
     margin-bottom: 25px;
   }
 
-  .answer-container {
+  .answers-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
