@@ -49,6 +49,9 @@ those other properties)
 
 main {
   padding: 60px 30px;
+  background-image: url('./assets/images/react-logo-half.png');
+  background-repeat: no-repeat;
+  background-position: right 70%;
 }
 
 main > h1 {
