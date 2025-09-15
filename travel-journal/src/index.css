@@ -24,16 +24,18 @@ header > h1 {
 
 article.journal-entry {
     display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
 article.journal-entry .marker {
-    width: 7px;
-    margin-right: 4px;
+    width: 15px;
+    margin-right: 8px;
 }
 
 article.journal-entry .main-image-container {
-    width: 125px;
-    height: 168px;
+    width: 225px;
+    height: 268px;
     overflow: hidden;
     border-radius: 5px;
     flex-shrink: 0;
@@ -52,7 +54,7 @@ article.info-container {
 
 .info-container span.country {
     text-transform: uppercase;
-    font-size: 0.7rem;
+    font-size: 2rem;
     margin-right: 12px;
 }
 
@@ -68,6 +70,7 @@ article.info-container {
 .info-container h2.entry-title {
     margin-top: 7px;
     margin-bottom: 17px;
+    font-size: 2rem;
 }
 
 
@@ -76,8 +79,8 @@ article.info-container {
 }
 
 .info-container p.entry-text {
-    line-height: 1.5;
-    font-size: 0.8rem;
+    line-height: 1 ;
+    font-size: 1.5rem;
     display: -webkit-box;
     line-clamp: 3;
     -webkit-line-clamp: 3;
