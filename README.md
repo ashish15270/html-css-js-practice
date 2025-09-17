@@ -38,6 +38,10 @@ Your app will be available at `http://localhost:5173` by default. Open it in you
 
 ---
 
+```git
+git add . && git commit -m "commit-message" && git push
+```
+
 ## 📦 What's Included
 
 - ⚛️ React 18+
