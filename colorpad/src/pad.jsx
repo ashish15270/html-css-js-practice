@@ -1,8 +1,12 @@
+import React from "react"
+
+
 export default function Pad(prop) {
+   
+
     return (
 
-        <button className={prop.on ? "on" : ""} style={{backgroundColor: prop.color }}> </button>
-        // {/* <button style={{backgroundColor:prop.color}}></button> */}
+        <button  onClick={()=>prop.toggle(prop.id)} className={prop.on ? "on" : undefined} style={{backgroundColor: prop.color }}> </button>
         
     )
 }
