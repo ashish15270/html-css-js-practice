@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Body() {
+export default function Body(prop) {
 
     const [ingredients, updateIngredients]=React.useState([])
 
@@ -29,7 +29,23 @@ export default function Body() {
                     aria-label="Add ingredient"/>
     <button>Add ingredients</button>
     </form>
-    {listIngredients}
+    
+    { ingredients.length>0 && 
+    <section>
+        <h2>Ingredients on hand:</h2>
+        <ul className="ingredients-list" aria-live="polite">{listIngredients}</ul>
+    </section>
+            }
+    {ingredients.length>2 && 
+    <div className="get-recipe-container">
+    <div>
+        <h3>Ready for a recipe?</h3>
+        <p>Generate a recipe from your list of ingredients.</p>
+    </div>
+    <button onClick={prop.showRecipe}>Get a recipe</button>
+    </div>
+    
+    }
         </main>
    
     )
