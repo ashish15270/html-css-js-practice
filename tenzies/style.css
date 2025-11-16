@@ -32,6 +32,7 @@ div#root {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    justify-content: space-evenly;
 }
 
  .dies {
@@ -56,3 +57,10 @@ div#root {
     cursor: pointer;
     font-family: Inter, sans-serif;
 } 
+
+main > button {
+    background-color: red;
+    padding: 10px;
+    border-radius: 2rem;
+    cursor: pointer;
+}
