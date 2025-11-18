@@ -7,6 +7,7 @@ export default function Body(){
 
 const [diceNums, diceNumArrSet]=useState(getdiceNums())
 
+
 function getdiceNums(){
     let tempObj={}
     const tempArray=[]
@@ -19,18 +20,38 @@ function getdiceNums(){
     return(tempArray)
     }
 
-    console.log(diceNums)
+    function holdFunc(id) {
+        diceNumArrSet(prev => 
+            prev.map(die => 
+                die.id===id ? 
+                {...die, isHeld:!die.isHeld}: 
+                die)
+        )
+    }
+
+
+    function rollUnheld(){
+        diceNumArrSet(
+            prev => 
+                prev.map( die => die.isHeld ? die : 
+                    {...die, value: Math.floor(Math.random()*6)+1}
+                 ))
+      //  console.log(diceNums)
+    }
+
     const diceEle=diceNums.map(dieObj =>
-        <Die key={dieObj.id} value={dieObj.value}  />
+        <Die key={dieObj.id} id={dieObj.id} value={dieObj.value} isHeld={dieObj.isHeld} holdFunc={()=>{holdFunc(dieObj.id)}} />
     )
-    console.log(diceEle)
+
+    
+    
 
     return (
         <main className="main-container">
             <section className="dies">
             {diceEle}
             </section>
-            <button onClick={()=>{diceNumArrSet(getdiceNums())}}>Roll the dice!</button>
+            <button onClick={rollUnheld}>Roll the dice!</button>
         </main>
     )
 }
