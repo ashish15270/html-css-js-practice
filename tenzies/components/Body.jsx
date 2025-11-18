@@ -6,6 +6,7 @@ export default function Body(){
     
 
 const [diceNums, diceNumArrSet]=useState(getdiceNums())
+const [endgame, setEndgame]=useState(false)
 
 
 function getdiceNums(){
@@ -21,12 +22,23 @@ function getdiceNums(){
     }
 
     function holdFunc(id) {
+        let win=0
+        const winNum=diceNums[0]['value']
+        for (let index = 0; index < 10; index++) {
+            if (diceNums[index]['value']===winNum) {
+                win=win+1
+            }           
+        }
+        if (win===10){
+            setEndgame(true)
+        }
+
         diceNumArrSet(prev => 
             prev.map(die => 
                 die.id===id ? 
                 {...die, isHeld:!die.isHeld}: 
-                die)
-        )
+                die
+        ))
     }
 
 
@@ -36,7 +48,6 @@ function getdiceNums(){
                 prev.map( die => die.isHeld ? die : 
                     {...die, value: Math.floor(Math.random()*6)+1}
                  ))
-      //  console.log(diceNums)
     }
 
     const diceEle=diceNums.map(dieObj =>
@@ -44,13 +55,14 @@ function getdiceNums(){
     )
 
     
-    
-
     return (
         <main className="main-container">
-            <section className="dies">
+         {!endgame && <section className="dies">
             {diceEle}
-            </section>
+            </section>}
+            {endgame && <section className="dies">
+                 <h1> You won!</h1> 
+                 </section> }
             <button onClick={rollUnheld}>Roll the dice!</button>
         </main>
     )
