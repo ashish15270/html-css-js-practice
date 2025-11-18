@@ -6,7 +6,22 @@ export default function Body(){
     
 
 const [diceNums, diceNumArrSet]=useState(getdiceNums())
-const [endgame, setEndgame]=useState(false)
+let endgame=false
+function endGame(){
+    let win=0
+    const winNum=diceNums[0]['value']
+    for (let index = 0; index < 10; index++) {
+        if (diceNums[index]['value']===winNum) {
+            win=win+1
+        }           
+    }
+    console.log(diceNums)
+    if (win===10){
+        endgame=true
+    }
+}
+
+endGame()
 
 
 function getdiceNums(){
@@ -22,16 +37,6 @@ function getdiceNums(){
     }
 
     function holdFunc(id) {
-        let win=0
-        const winNum=diceNums[0]['value']
-        for (let index = 0; index < 10; index++) {
-            if (diceNums[index]['value']===winNum) {
-                win=win+1
-            }           
-        }
-        if (win===10){
-            setEndgame(true)
-        }
 
         diceNumArrSet(prev => 
             prev.map(die => 
